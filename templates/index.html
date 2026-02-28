@@ -1,21 +1,18 @@
-<!DOCTYPE html>
-<html>
+<<!DOCTYPE html>
+<html lang="tr">
 <head>
-    <title>Altınyıldız AI Bot</title>
+    <meta charset="UTF-8">
+    <title>Altınyıldız AI</title>
 </head>
 <body>
-
-<h2>Altınyıldız AI Entegrasyon Botu</h2>
-
-<form method="post">
-    <textarea name="fikir" rows="6" cols="60"></textarea>
-    <br><br>
-    <button type="submit">Gönder</button>
-</form>
-
-<pre>
-{{ sonuc }}
-</pre>
-
+    <h1>Altınyıldız AI</h1>
+    <form method="post">
+        <textarea name="user_input" rows="5" cols="40" placeholder="Fikrinizi yazın"></textarea><br>
+        <button type="submit">Gönder</button>
+    </form>
+    {% if response %}
+        <h2>Cevap:</h2>
+        <pre>{{ response }}</pre>
+    {% endif %}
 </body>
 </html>
