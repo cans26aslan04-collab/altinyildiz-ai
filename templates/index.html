@@ -21,6 +21,12 @@
 <div id="loading">Analiz ediliyor...</div>
 <div id="response"></div>
 
+{% if response %}
+<div class="response" style="display:none;">
+    {{ response }}
+</div>
+{% endif %}
+
 <script>
 function sendMessage() {
     const input = document.getElementById("user_input").value;
@@ -41,13 +47,14 @@ function sendMessage() {
     .then(html => {
         loading.style.display = "none";
 
-        // Sunucudan gelen HTML içinden sadece cevabı çekiyoruz
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, "text/html");
         const newResponse = doc.querySelector(".response");
 
         if (newResponse) {
             responseDiv.innerHTML = newResponse.innerHTML;
+        } else {
+            responseDiv.innerHTML = "Cevap alınamadı.";
         }
     });
 }
